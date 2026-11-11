@@ -4,8 +4,8 @@ Presentation for practical assignment 2 (Design CAB), group KB-307.
 
 **Live:** https://nazya-why.github.io/kion-finops-deck/
 
-A single-page HTML deck: a ray-traced black hole background (WebGL2), liquid-glass slides
-that scroll vertically, and the service architecture, network and data flow diagrams.
+A single-page HTML deck in a simple light style: paper background, white cards, one blue accent,
+slides that scroll vertically, and the service architecture, network and data flow diagrams.
 
 ## Controls
 
