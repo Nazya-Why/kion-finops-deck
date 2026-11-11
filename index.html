@@ -228,6 +228,15 @@ dt{color:var(--ink)}
 .fig-text .facts .ic{width:4.4rem;height:4.4rem;padding:1.1rem;border-radius:1.2rem;background:#eef2fe}
 .facts li{grid-template-columns:4.4rem minmax(0,1fr);align-items:center}
 .sub{padding-left:2rem;border-left:.3rem solid var(--accent)}
+/* rounder corners */
+.tile,.panel,.note,.steps,.slot{border-radius:3rem}
+.tile .more{border-radius:0 0 2.9rem 2.9rem}
+.slot img{border-radius:1.6rem}
+th:first-child{border-radius:1.8rem 0 0 1.8rem}
+th:last-child{border-radius:0 1.8rem 1.8rem 0}
+.step .more{border-radius:1.8rem}
+.fig-text .facts .ic{border-radius:1.6rem}
+#rail span{border-radius:1.2rem}
 /* ---------- phone and short screens: one scrolling column ---------- */
 @media (max-width:900px),(max-height:500px){
   html{font-size:7.6px}
