@@ -178,6 +178,56 @@ dd{font-size:1.9rem;line-height:1.38;color:var(--ink-2)}
 #lb-x .ic{width:2.2rem;height:2.2rem;color:#fff}
 @keyframes lb-in{from{opacity:0}}
 
+/* ---------- richer cards ----------
+   Soft layered elevation, a short blue accent bar, a large faint index number,
+   a tinted footer, and a gentle lift on hover. */
+:root{--shadow:0 1px 1px rgba(16,24,40,.04),0 .2rem .6rem rgba(16,24,40,.04),0 1.6rem 3.6rem -2rem rgba(16,24,40,.22);
+      --shadow-hi:0 1px 1px rgba(16,24,40,.05),0 .4rem 1.2rem rgba(16,24,40,.06),0 3rem 6rem -2.4rem rgba(42,78,232,.28)}
+.tile,.panel,.note,.steps,.slot{border-color:#e8e6e0;box-shadow:var(--shadow);transition:border-color .35s ease,box-shadow .35s ease,translate .5s var(--ease)}
+.tile:hover,.panel:hover,.note:hover,.slot.has:hover{translate:0 -.6rem;border-color:#cdd6f7;box-shadow:var(--shadow-hi)}
+.tile{padding-top:2.6rem;padding-bottom:2.6rem;overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#fdfdfb 100%)}
+.flow .tile{overflow:visible}
+.tile h3::before{content:"";width:4rem;height:.4rem;margin-bottom:1.6rem;border-radius:.4rem;background:linear-gradient(90deg,var(--accent),#7d95ff)}
+.tile h3::after{content:counter(t,decimal-leading-zero);position:absolute;top:1.6rem;right:2.4rem;font-size:7.2rem;font-weight:700;line-height:1;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px #e6e9f5;font-variant-numeric:tabular-nums;transition:-webkit-text-stroke-color .35s ease}
+.tile:hover h3::after{-webkit-text-stroke-color:#c3cdf6}
+.tile .more{margin:auto -3.2rem -2.6rem;padding:1.4rem 3.2rem 1.7rem;border-radius:0 0 1.9rem 1.9rem;border-top:1px solid #eeece6;background:#f7f8fc;color:#6f6e69}
+.tile p+.more{margin-top:auto}
+.tile p:first-of-type{margin-bottom:1rem}
+.tile h3{margin-bottom:1rem}
+.tile .more::before{content:"";display:inline-block;width:.6rem;height:.6rem;margin:0 1rem .25rem 0;border-radius:50%;background:var(--accent);vertical-align:middle}
+.big .tile .more{font-size:1.95rem}
+.flow .tile+.tile::before{background:#fff;border-color:#e3e1da;box-shadow:0 .4rem 1rem rgba(16,24,40,.08)}
+.flow .tile+.tile::after{border-color:var(--accent)}
+.note{background:linear-gradient(90deg,#eef2fe 0%,#ffffff 55%);box-shadow:inset .4rem 0 0 var(--accent),var(--shadow)}
+.note:hover{box-shadow:inset .4rem 0 0 var(--accent),var(--shadow-hi)}
+.note h3{color:var(--ink)}
+/* tables */
+.panel{padding:1.4rem 1.6rem 1rem}
+th{padding:1.3rem 2.4rem 1.3rem 1.6rem;background:#f4f5f9;color:#6b6a65}
+th:first-child{border-radius:1.2rem 0 0 1.2rem}
+th:last-child{border-radius:0 1.2rem 1.2rem 0}
+td{padding:1.3rem 2.4rem 1.3rem 1.6rem;border-top:0;border-bottom:1px solid #efede7}
+tbody tr:last-child td{border-bottom:0}
+tbody tr{transition:background .25s ease}
+tbody tr:hover{background:#f7f8fd}
+td:first-child::before{content:"";display:inline-block;width:.7rem;height:.7rem;margin:0 1.2rem .25rem 0;border-radius:.2rem;background:var(--accent)}
+/* definition panels */
+.cols .panel{padding:2.4rem 3rem .8rem}
+.def{padding:1rem 0}
+.cols h3{display:flex;align-items:center;gap:1.2rem}
+.cols h3::before{content:"";width:1rem;height:1rem;border-radius:.25rem;background:var(--accent)}
+.def{border-top-color:#efede7}
+dt{color:var(--ink)}
+/* process steps */
+.steps{background:linear-gradient(180deg,#ffffff 0%,#fbfbf8 100%)}
+.step::before{width:2rem;height:2rem;top:-.3rem;background:#fff;box-shadow:inset 0 0 0 .5rem var(--accent),0 0 0 .6rem rgba(42,78,232,.12)}
+.step .no{font-size:3.4rem;font-weight:700;letter-spacing:-.05em;line-height:1;margin:.4rem 0 .8rem;color:transparent;-webkit-text-stroke:1.5px #b8c4f4}
+.step .more{background:#f7f8fc;border-top:0;border-radius:1.2rem;padding:1.1rem 1.4rem;margin-top:1.1rem}
+/* diagram card */
+.slot{background:#fff}
+.fig-text .facts .ic{width:4.4rem;height:4.4rem;padding:1.1rem;border-radius:1.2rem;background:#eef2fe}
+.facts li{grid-template-columns:4.4rem minmax(0,1fr);align-items:center}
+.sub{padding-left:2rem;border-left:.3rem solid var(--accent)}
 /* ---------- phone and short screens: one scrolling column ---------- */
 @media (max-width:900px),(max-height:500px){
   html{font-size:7.6px}
@@ -198,6 +248,7 @@ dd{font-size:1.9rem;line-height:1.38;color:var(--ink-2)}
   .step>p:not(.more){min-height:0}
   .step::before{top:.5rem}
   .flow .tile+.tile::before,.flow .tile+.tile::after{display:none}
+  .tile:hover,.panel:hover,.note:hover,.slot.has:hover{translate:none}
   .note,.def{grid-template-columns:minmax(0,1fr);gap:.4rem}
   thead{display:none}
   table,tbody,tr,td{display:block;width:100%}
